@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinSure Consultations - Jay Sabani, Ajmer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --blue: #1a3a6b;
+    --accent: #2563eb;
+    --gold: #f59e0b;
+    --light-blue: #dbeafe;
+    --white: #ffffff;
+    --gray: #64748b;
+    --light-gray: #f8fafc;
+    --text: #1e293b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* LANGUAGE TOGGLE */
+  .lang-bar {
+    background: var(--navy);
+    padding: 8px 0;
+    text-align: right;
+  }
+  .lang-bar .container { display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
+  .lang-toggle {
+    display: flex;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .lang-btn {
+    padding: 4px 16px;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  .lang-btn.active {
+    background: var(--accent);
+    color: white;
+    border-radius: 20px;
+  }
+
+  /* NAVBAR */
+  nav {
+    background: white;
+    padding: 16px 0;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent);
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--blue) !important; color: white !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--navy); display: block; transition: 0.3s; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #1e4faa 100%);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(37,99,235,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
+  .hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    animation: fadeUp 0.8s ease;
+  }
+  .hero-text h1 span { color: var(--gold); }
+  .hero-text p {
+    color: rgba(255,255,255,0.8);
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.8s ease 0.4s both; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(245,158,11,0.4); }
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.4);
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+  .hero-card {
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 36px;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+  .hero-card h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 24px;
+    font-family: 'Playfair Display', serif;
+  }
+  .service-list { list-style: none; }
+  .service-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255,255,255,0.85);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 15px;
+  }
+  .service-list li:last-child { border-bottom: none; }
+  .service-list li .icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(37,99,235,0.4);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .trust-badges {
+    display: flex;
+    gap: 20px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .trust-badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* CONTAINER */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* SECTIONS */
+  section { padding: 80px 0; }
+  .section-tag {
+    display: inline-block;
+    background: var(--light-blue);
+    color: var(--accent);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .section-title span { color: var(--accent); }
+  .section-sub {
+    color: var(--gray);
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 600px;
+  }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-header .section-sub { margin: 0 auto; }
+
+  /* SERVICES */
+  #services { background: var(--light-gray); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    transition: all 0.3s;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+  .service-card.featured { border-color: var(--accent); }
+  .service-card.featured::before { transform: scaleX(1); }
+  .featured-badge {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+  }
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--light-blue);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  .service-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .service-card p {
+    color: var(--gray);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .service-features { list-style: none; margin-bottom: 24px; }
+  .service-features li {
+    color: var(--text);
+    font-size: 14px;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .service-features li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+  .service-link {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.3s;
+  }
+  .service-link:hover { gap: 10px; }
+
+  /* WHY CHOOSE US */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .why-image {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    border-radius: 20px;
+    padding: 48px;
+    color: white;
+    text-align: center;
+  }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+  .stat-box {
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--gold);
+  }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .why-points { display: flex; flex-direction: column; gap: 24px; }
+  .why-point { display: flex; gap: 16px; align-items: flex-start; }
+  .why-point-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--light-blue);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .why-point h4 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .why-point p { color: var(--gray); font-size: 15px; line-height: 1.6; }
+
+  /* LEAD FORM */
+  #contact { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); }
+  #contact .section-title { color: white; }
+  #contact .section-tag { background: rgba(255,255,255,0.15); color: white; }
+  #contact .section-sub { color: rgba(255,255,255,0.7); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .form-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .form-card h3 { font-size: 22px; color: var(--navy); margin-bottom: 6px; font-weight: 700; }
+  .form-card p { color: var(--gray); font-size: 14px; margin-bottom: 28px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    transition: border-color 0.3s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
+  .form-group textarea { height: 90px; resize: vertical; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .submit-btn {
+    width: 100%;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'DM Sans', sans-serif;
+    margin-top: 8px;
+  }
+  .submit-btn:hover { background: var(--navy); transform: translateY(-1px); }
+  .contact-info { color: white; }
+  .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 16px; }
+  .contact-info p { color: rgba(255,255,255,0.75); font-size: 16px; line-height: 1.7; margin-bottom: 36px; }
+  .contact-item { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
+  .contact-item-icon {
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .contact-item-text p { color: rgba(255,255,255,0.6); font-size: 13px; }
+  .contact-item-text strong { color: white; font-size: 16px; }
+  .contact-actions { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
+  .wa-btn {
+    background: #25D366;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+    font-size: 15px;
+  }
+  .wa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,211,102,0.3); }
+  .call-btn {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: all 0.3s;
+    font-size: 15px;
+  }
+  .call-btn:hover { background: rgba(255,255,255,0.25); }
+
+  /* REFER SECTION */
+  .refer-section {
+    background: var(--light-gray);
+    border-top: 1px solid #e2e8f0;
+    padding: 48px 0;
+  }
+  .refer-inner {
+    background: white;
+    border-radius: 16px;
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  }
+  .refer-icon { font-size: 48px; flex-shrink: 0; }
+  .refer-content h3 { font-size: 20px; color: var(--navy); font-weight: 700; margin-bottom: 8px; }
+  .refer-content p { color: var(--gray); font-size: 15px; line-height: 1.6; }
+  .refer-btn {
+    margin-left: auto;
+    background: var(--light-blue);
+    color: var(--accent);
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    white-space: nowrap;
+    font-size: 15px;
+    transition: all 0.3s;
+  }
+  .refer-btn:hover { background: var(--accent); color: white; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: white;
+    padding: 48px 0 24px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+  .footer-brand .logo { color: white; display: block; margin-bottom: 12px; }
+  .footer-brand p { color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.7; }
+  .footer-col h4 { color: white; font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom p { color: rgba(255,255,255,0.4); font-size: 13px; }
+  .footer-badges { display: flex; gap: 12px; }
+  .footer-badge {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+  }
+
+  /* FLOATING BUTTONS */
+  .float-btns {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+  }
+  .float-wa {
+    width: 56px; height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    font-size: 26px;
+    transition: all 0.3s;
+  }
+  .float-wa:hover { transform: scale(1.1); }
+  .float-call {
+    width: 56px; height: 56px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.4);
+    font-size: 22px;
+    transition: all 0.3s;
+  }
+  .float-call:hover { transform: scale(1.1); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .hero .container { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .why-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .refer-inner { flex-direction: column; text-align: center; }
+    .refer-btn { margin-left: 0; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .form-row { grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .contact-actions { flex-direction: column; }
+  }
+
+  /* SUCCESS MSG */
+  .success-msg {
+    display: none;
+    background: #ecfdf5;
+    border: 1px solid #10b981;
+    color: #065f46;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  /* PARTNERS */
+  .partners { padding: 40px 0; border-bottom: 1px solid #e2e8f0; }
+  .partners-inner { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: center; }
+  .partners p { color: var(--gray); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  .partner-badge {
+    background: var(--light-gray);
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <div class="container">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+      <button class="lang-btn" onclick="setLang('hi')" id="btn-hi">हिं</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="container">
+    <a href="#" class="logo">Fin<span>Sure</span> Consultations</a>
+    <ul class="nav-links">
+      <li><a href="#services" data-en="Services" data-hi="सेवाएं">Services</a></li>
+      <li><a href="#why" data-en="Why Us" data-hi="हमें क्यों">Why Us</a></li>
+      <li><a href="#contact" data-en="Contact" data-hi="संपर्क">Contact</a></li>
+      <li><a href="#contact" class="nav-cta" data-en="Get Free Advice" data-hi="मुफ्त सलाह लें">Get Free Advice</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-text">
+      <h1 data-en="Protect Your Family. <span>Grow Your Wealth.</span>" data-hi="अपने परिवार को सुरक्षित करें। <span>अपनी संपत्ति बढ़ाएं।</span>">
+        Protect Your Family. <span>Grow Your Wealth.</span>
+      </h1>
+      <p data-en="Expert financial guidance in Life Insurance, Loans, Credit Cards & General Insurance. Trusted advisor in Ajmer — Jay Sabani at your service." data-hi="जीवन बीमा, ऋण, क्रेडिट कार्ड और सामान्य बीमा में विशेषज्ञ मार्गदर्शन। अजमेर में विश्वसनीय सलाहकार — जय सबानी आपकी सेवा में।">
+        Expert financial guidance in Life Insurance, Loans, Credit Cards & General Insurance. Trusted advisor in Ajmer — Jay Sabani at your service.
+      </p>
+      <div class="hero-btns">
+        <a href="https://wa.me/916378802595?text=Hi%20Jay%2C%20I%20need%20financial%20advice!" target="_blank" class="btn-primary" data-en="💬 WhatsApp Now" data-hi="💬 WhatsApp करें">💬 WhatsApp Now</a>
+        <a href="#contact" class="btn-secondary" data-en="Get Free Consultation" data-hi="मुफ्त परामर्श पाएं">Get Free Consultation</a>
+      </div>
+      <div class="trust-badges" style="margin-top:32px">
+        <div class="trust-badge" data-en="✅ Bajaj Life IC" data-hi="✅ बजाज लाइफ IC">✅ Bajaj Life IC</div>
+        <div class="trust-badge" data-en="✅ Turtlemint Pro" data-hi="✅ टर्टलमिंट प्रो">✅ Turtlemint Pro</div>
+        <div class="trust-badge" data-en="✅ PB Partners" data-hi="✅ PB पार्टनर्स">✅ PB Partners</div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3 data-en="Our Services" data-hi="हमारी सेवाएं">Our Services</h3>
+      <ul class="service-list">
+        <li><div class="icon">🛡️</div> <span data-en="Life Insurance — Bajaj Allianz" data-hi="जीवन बीमा — बजाज आलियांज">Life Insurance — Bajaj Allianz</span></li>
+        <li><div class="icon">💳</div> <span data-en="Credit Cards — Best Offers" data-hi="क्रेडिट कार्ड — बेहतरीन ऑफर">Credit Cards — Best Offers</span></li>
+        <li><div class="icon">🏦</div> <span data-en="Home & Personal Loans" data-hi="होम और पर्सनल लोन">Home & Personal Loans</span></li>
+        <li><div class="icon">🚗</div> <span data-en="General Insurance" data-hi="सामान्य बीमा">General Insurance</span></li>
+        <li><div class="icon">📈</div> <span data-en="Investment Planning" data-hi="निवेश योजना">Investment Planning</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<div class="partners">
+  <div class="container">
+    <div class="partners-inner">
+      <p data-en="Trusted Partners:" data-hi="विश्वसनीय साझेदार:">Trusted Partners:</p>
+      <div class="partner-badge">🦺 Bajaj Allianz Life</div>
+      <div class="partner-badge">🐢 Turtlemint Pro</div>
+      <div class="partner-badge">📊 PB Partners</div>
+      <div class="partner-badge">🏦 Multiple Banks</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" data-en="What We Offer" data-hi="हम क्या देते हैं">What We Offer</div>
+      <h2 class="section-title" data-en="All Your Financial Needs, <span>One Place</span>" data-hi="आपकी सभी वित्तीय जरूरतें, <span>एक जगह</span>">All Your Financial Needs, <span>One Place</span></h2>
+      <p class="section-sub" data-en="From protecting your family to growing your savings — we've got you covered with the best plans in the market." data-hi="अपने परिवार की सुरक्षा से लेकर बचत बढ़ाने तक — हम बाजार की सर्वोत्तम योजनाओं के साथ आपके साथ हैं।">From protecting your family to growing your savings — we've got you covered with the best plans in the market.</p>
+    </div>
+    <div class="services-grid">
+
+      <!-- Life Insurance -->
+      <div class="service-card featured">
+        <div class="featured-badge" data-en="⭐ Most Popular" data-hi="⭐ सबसे लोकप्रिय">⭐ Most Popular</div>
+        <div class="service-icon">🛡️</div>
+        <h3 data-en="Life Insurance" data-hi="जीवन बीमा">Life Insurance</h3>
+        <p data-en="Secure your family's future with the best life insurance plans. Term plans, ULIPs, savings plans — all from Bajaj Allianz." data-hi="बजाज आलियांज के सर्वोत्तम जीवन बीमा योजनाओं से अपने परिवार का भविष्य सुरक्षित करें।">Secure your family's future with the best life insurance plans. Term plans, ULIPs, savings plans — all from Bajaj Allianz.</p>
+        <ul class="service-features">
+          <li data-en="Term Plans (High Cover, Low Premium)" data-hi="टर्म प्लान (अधिक कवर, कम प्रीमियम)">Term Plans (High Cover, Low Premium)</li>
+          <li data-en="ULIP — Investment + Protection" data-hi="ULIP — निवेश + सुरक्षा">ULIP — Investment + Protection</li>
+          <li data-en="Child Plans & Retirement Plans" data-hi="बच्चों की योजनाएं और सेवानिवृत्ति योजनाएं">Child Plans & Retirement Plans</li>
+          <li data-en="Tax Saving under 80C" data-hi="80C के तहत टैक्स बचत">Tax Saving under 80C</li>
+        </ul>
+        <a href="#contact" class="service-link" data-en="Get a Free Quote →" data-hi="मुफ्त कोटेशन पाएं →">Get a Free Quote →</a>
+      </div>
+
+      <!-- Credit Cards -->
+      <div class="service-card">
+        <div class="service-icon">💳</div>
+        <h3 data-en="Credit Cards" data-hi="क्रेडिट कार्ड">Credit Cards</h3>
+        <p data-en="Get the best credit card suited to your lifestyle. Cashback, travel rewards, shopping offers — we'll find the perfect match." data-hi="अपनी जीवनशैली के अनुसार सबसे अच्छा क्रेडिट कार्ड पाएं। कैशबैक, ट्रैवल रिवार्ड्स, शॉपिंग ऑफर।">Get the best credit card suited to your lifestyle. Cashback, travel rewards, shopping offers — we'll find the perfect match.</p>
+        <ul class="service-features">
+          <li data-en="Zero Annual Fee Cards" data-hi="जीरो वार्षिक शुल्क कार्ड">Zero Annual Fee Cards</li>
+          <li data-en="Cashback & Rewards Cards" data-hi="कैशबैक और रिवार्ड कार्ड">Cashback & Rewards Cards</li>
+          <li data-en="Fast Approval Process" data-hi="तेज़ अनुमोदन प्रक्रिया">Fast Approval Process</li>
+          <li data-en="Multiple Bank Options" data-hi="कई बैंक विकल्प">Multiple Bank Options</li>
+        </ul>
+        <a href="#contact" class="service-link" data-en="Apply Now →" data-hi="अभी आवेदन करें →">Apply Now →</a>
+      </div>
+
+      <!-- Loans -->
+      <div class="service-card">
+        <div class="service-icon">🏦</div>
+        <h3 data-en="Loans" data-hi="ऋण">Loans</h3>
+        <p data-en="Personal loans, home loans, business loans — quick disbursement with lowest interest rates and minimal documentation." data-hi="पर्सनल लोन, होम लोन, बिजनेस लोन — न्यूनतम ब्याज दर और कम दस्तावेजों के साथ त्वरित वितरण।">Personal loans, home loans, business loans — quick disbursement with lowest interest rates and minimal documentation.</p>
+        <ul class="service-features">
+          <li data-en="Personal Loans up to ₹50L" data-hi="₹50L तक पर्सनल लोन">Personal Loans up to ₹50L</li>
+          <li data-en="Home Loans — Best Rates" data-hi="होम लोन — सर्वोत्तम दरें">Home Loans — Best Rates</li>
+          <li data-en="Business & MSME Loans" data-hi="बिजनेस और MSME ऋण">Business & MSME Loans</li>
+          <li data-en="Quick 24-48hr Approval" data-hi="24-48 घंटे में त्वरित अनुमोदन">Quick 24-48hr Approval</li>
+        </ul>
+        <a href="#contact" class="service-link" data-en="Check Eligibility →" data-hi="पात्रता जांचें →">Check Eligibility →</a>
+      </div>
+
+      <!-- General Insurance -->
+      <div class="service-card">
+        <div class="service-icon">🚗</div>
+        <h3 data-en="General Insurance" data-hi="सामान्य बीमा">General Insurance</h3>
+        <p data-en="Health, motor, home, and travel insurance. Comprehensive coverage for everything that matters to you and your family." data-hi="स्वास्थ्य, मोटर, होम और ट्रैवल बीमा। आपके और आपके परिवार के लिए व्यापक कवरेज।">Health, motor, home, and travel insurance. Comprehensive coverage for everything that matters to you and your family.</p>
+        <ul class="service-features">
+          <li data-en="Health Insurance Plans" data-hi="स्वास्थ्य बीमा योजनाएं">Health Insurance Plans</li>
+          <li data-en="Motor Insurance (Car & Bike)" data-hi="मोटर बीमा (कार और बाइक)">Motor Insurance (Car & Bike)</li>
+          <li data-en="Home & Travel Insurance" data-hi="होम और ट्रैवल बीमा">Home & Travel Insurance</li>
+          <li data-en="Cashless Claim Support" data-hi="कैशलेस क्लेम सहायता">Cashless Claim Support</li>
+        </ul>
+        <a href="#contact" class="service-link" data-en="Get Covered →" data-hi="बीमा कराएं →">Get Covered →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-image">
+        <div style="font-size:64px;margin-bottom:16px">👨‍💼</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:24px;margin-bottom:8px" data-en="Jay Sabani" data-hi="जय सबानी">Jay Sabani</h3>
+        <p style="color:rgba(255,255,255,0.7);font-size:14px;margin-bottom:8px" data-en="Financial Advisor, Ajmer" data-hi="वित्तीय सलाहकार, अजमेर">Financial Advisor, Ajmer</p>
+        <p style="color:rgba(255,255,255,0.6);font-size:13px" data-en="Bajaj Allianz Certified IC | Turtlemint Pro | PB Partners" data-hi="बजाज आलियांज प्रमाणित IC | टर्टलमिंट प्रो | PB पार्टनर्स">Bajaj Allianz Certified IC | Turtlemint Pro | PB Partners</p>
+        <div class="stat-grid">
+          <div class="stat-box">
+            <div class="stat-num">500+</div>
+            <div class="stat-label" data-en="Happy Clients" data-hi="खुश ग्राहक">Happy Clients</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">50+</div>
+            <div class="stat-label" data-en="Plans Available" data-hi="उपलब्ध योजनाएं">Plans Available</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">24h</div>
+            <div class="stat-label" data-en="Response Time" data-hi="प्रतिक्रिया समय">Response Time</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">100%</div>
+            <div class="stat-label" data-en="Free Advice" data-hi="मुफ्त सलाह">Free Advice</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-tag" data-en="Why Choose Us" data-hi="हमें क्यों चुनें">Why Choose Us</div>
+        <h2 class="section-title" data-en="Your Trusted Financial <span>Partner in Ajmer</span>" data-hi="अजमेर में आपका विश्वसनीय <span>वित्तीय साथी</span>">Your Trusted Financial <span>Partner in Ajmer</span></h2>
+        <div class="why-points" style="margin-top:32px">
+          <div class="why-point">
+            <div class="why-point-icon">🎯</div>
+            <div>
+              <h4 data-en="Unbiased Advice" data-hi="निष्पक्ष सलाह">Unbiased Advice</h4>
+              <p data-en="We compare plans from multiple companies and recommend only what's best for YOU — not what pays us more." data-hi="हम कई कंपनियों की योजनाओं की तुलना करते हैं और केवल वही सुझाते हैं जो आपके लिए सर्वोत्तम है।">We compare plans from multiple companies and recommend only what's best for YOU — not what pays us more.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-icon">⚡</div>
+            <div>
+              <h4 data-en="Fast & Paperless Process" data-hi="तेज़ और कागजरहित प्रक्रिया">Fast & Paperless Process</h4>
+              <p data-en="Get your policy or loan approved quickly with minimal paperwork. We handle the process end-to-end for you." data-hi="न्यूनतम कागजी कार्रवाई के साथ जल्दी से अपनी पॉलिसी या ऋण प्राप्त करें।">Get your policy or loan approved quickly with minimal paperwork. We handle the process end-to-end for you.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-icon">🤝</div>
+            <div>
+              <h4 data-en="After-Sales Support" data-hi="बिक्री के बाद सहायता">After-Sales Support</h4>
+              <p data-en="We don't disappear after the sale. Claim assistance, renewal reminders, policy reviews — we're always here." data-hi="हम बिक्री के बाद गायब नहीं होते। क्लेम सहायता, नवीनीकरण अनुस्मारक — हम हमेशा यहाँ हैं।">We don't disappear after the sale. Claim assistance, renewal reminders, policy reviews — we're always here.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-icon">🔒</div>
+            <div>
+              <h4 data-en="100% Trusted & Certified" data-hi="100% विश्वसनीय और प्रमाणित">100% Trusted & Certified</h4>
+              <p data-en="Certified by Bajaj Allianz, registered with Turtlemint Pro & PB Partners. Your money is always safe." data-hi="बजाज आलियांज द्वारा प्रमाणित, टर्टलमिंट प्रो और PB पार्टनर्स के साथ पंजीकृत।">Certified by Bajaj Allianz, registered with Turtlemint Pro & PB Partners. Your money is always safe.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / LEAD FORM -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-tag" data-en="Get In Touch" data-hi="संपर्क करें">Get In Touch</div>
+        <h2 class="section-title" data-en="Let's Find the Right Plan for You" data-hi="आपके लिए सही योजना खोजें">Let's Find the Right Plan for You</h2>
+        <p style="color:rgba(255,255,255,0.7);font-size:16px;line-height:1.7;margin:16px 0 32px" data-en="Fill in the form or reach out directly. Free consultation, no obligations. Jay Sabani will personally get back to you within 24 hours." data-hi="फॉर्म भरें या सीधे संपर्क करें। मुफ्त परामर्श, कोई बाध्यता नहीं। जय सबानी व्यक्तिगत रूप से 24 घंटे में आपसे संपर्क करेंगे।">Fill in the form or reach out directly. Free consultation, no obligations. Jay Sabani will personally get back to you within 24 hours.</p>
+        <div class="contact-item">
+          <div class="contact-item-icon">📱</div>
+          <div class="contact-item-text">
+            <p data-en="Call / WhatsApp" data-hi="कॉल / WhatsApp">Call / WhatsApp</p>
+            <strong>+91 63788 02595</strong>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <p data-en="Location" data-hi="स्थान">Location</p>
+            <strong data-en="Ajmer, Rajasthan" data-hi="अजमेर, राजस्थान">Ajmer, Rajasthan</strong>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">⏰</div>
+          <div class="contact-item-text">
+            <p data-en="Available" data-hi="उपलब्धता">Available</p>
+            <strong data-en="Mon – Sat, 9AM – 7PM" data-hi="सोम – शनि, सुबह 9 – शाम 7">Mon – Sat, 9AM – 7PM</strong>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <a href="https://wa.me/916378802595?text=Hi%20Jay%2C%20I%20need%20help%20with%20financial%20planning!" target="_blank" class="wa-btn">
+            <span>💬</span> <span data-en="Chat on WhatsApp" data-hi="WhatsApp पर चैट करें">Chat on WhatsApp</span>
+          </a>
+          <a href="tel:+916378802595" class="call-btn">
+            <span>📞</span> <span data-en="Call Now" data-hi="अभी कॉल करें">Call Now</span>
+          </a>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3 data-en="Get Free Consultation" data-hi="मुफ्त परामर्श पाएं">Get Free Consultation</h3>
+        <p data-en="Fill the form — Jay will call you back within 24 hours." data-hi="फॉर्म भरें — जय 24 घंटे में आपको कॉल करेंगे।">Fill the form — Jay will call you back within 24 hours.</p>
+        <form onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label data-en="Your Name" data-hi="आपका नाम">Your Name</label>
+              <input type="text" placeholder="Full Name" required />
+            </div>
+            <div class="form-group">
+              <label data-en="Phone Number" data-hi="फोन नंबर">Phone Number</label>
+              <input type="tel" placeholder="10-digit mobile" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-en="I'm interested in..." data-hi="मुझे रुचि है...">I'm interested in...</label>
+            <select required>
+              <option value="" data-en="Select a service" data-hi="सेवा चुनें">Select a service</option>
+              <option data-en="Life Insurance" data-hi="जीवन बीमा">Life Insurance</option>
+              <option data-en="Health Insurance" data-hi="स्वास्थ्य बीमा">Health Insurance</option>
+              <option data-en="Motor Insurance" data-hi="मोटर बीमा">Motor Insurance</option>
+              <option data-en="Credit Card" data-hi="क्रेडिट कार्ड">Credit Card</option>
+              <option data-en="Personal Loan" data-hi="पर्सनल लोन">Personal Loan</option>
+              <option data-en="Home Loan" data-hi="होम लोन">Home Loan</option>
+              <option data-en="Other" data-hi="अन्य">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-en="Your City" data-hi="आपका शहर">Your City</label>
+            <input type="text" placeholder="City name" />
+          </div>
+          <div class="form-group">
+            <label data-en="Message (optional)" data-hi="संदेश (वैकल्पिक)">Message (optional)</label>
+            <textarea placeholder="Tell us what you're looking for..." data-en-placeholder="Tell us what you're looking for..." data-hi-placeholder="बताएं आप क्या ढूंढ रहे हैं..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn" data-en="🚀 Request Free Callback" data-hi="🚀 मुफ्त कॉलबैक मांगें">🚀 Request Free Callback</button>
+          <div class="success-msg" id="successMsg" data-en="✅ Thank you! Jay will contact you within 24 hours." data-hi="✅ धन्यवाद! जय 24 घंटे में आपसे संपर्क करेंगे।">✅ Thank you! Jay will contact you within 24 hours.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFER & EARN (subtle) -->
+<div class="refer-section">
+  <div class="container">
+    <div class="refer-inner">
+      <div class="refer-icon">🎁</div>
+      <div class="refer-content">
+        <h3 data-en="Know someone who needs financial advice?" data-hi="क्या आप किसी को जानते हैं जिसे वित्तीय सलाह चाहिए?">Know someone who needs financial advice?</h3>
+        <p data-en="Refer a friend or family member to FinSure Consultations and earn a thank-you reward when they take a policy or loan. Simple, easy, rewarding." data-hi="किसी मित्र या परिवार को FinSure Consultations के पास रेफर करें और उनकी पॉलिसी या ऋण लेने पर धन्यवाद पुरस्कार अर्जित करें।">Refer a friend or family member to FinSure Consultations and earn a thank-you reward when they take a policy or loan. Simple, easy, rewarding.</p>
+      </div>
+      <a href="https://wa.me/916378802595?text=Hi%20Jay%2C%20I%20want%20to%20refer%20someone!" target="_blank" class="refer-btn" data-en="Refer & Earn →" data-hi="रेफर करें और कमाएं →">Refer & Earn →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">Fin<span style="color:var(--gold)">Sure</span> Consultations</a>
+        <p style="margin-top:12px" data-en="Your trusted financial partner in Ajmer. Life insurance, loans, credit cards and general insurance — all under one roof." data-hi="अजमेर में आपका विश्वसनीय वित्तीय साथी। जीवन बीमा, ऋण, क्रेडिट कार्ड और सामान्य बीमा — सब एक छत के नीचे।">Your trusted financial partner in Ajmer. Life insurance, loans, credit cards and general insurance — all under one roof.</p>
+        <p style="margin-top:12px;color:rgba(255,255,255,0.5);font-size:13px">👤 Jay Sabani | 📍 Ajmer, Rajasthan</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Services" data-hi="सेवाएं">Services</h4>
+        <ul>
+          <li><a href="#services" data-en="Life Insurance" data-hi="जीवन बीमा">Life Insurance</a></li>
+          <li><a href="#services" data-en="Health Insurance" data-hi="स्वास्थ्य बीमा">Health Insurance</a></li>
+          <li><a href="#services" data-en="Motor Insurance" data-hi="मोटर बीमा">Motor Insurance</a></li>
+          <li><a href="#services" data-en="Credit Cards" data-hi="क्रेडिट कार्ड">Credit Cards</a></li>
+          <li><a href="#services" data-en="Loans" data-hi="ऋण">Loans</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Quick Links" data-hi="त्वरित लिंक">Quick Links</h4>
+        <ul>
+          <li><a href="#why" data-en="Why Choose Us" data-hi="हमें क्यों चुनें">Why Choose Us</a></li>
+          <li><a href="#contact" data-en="Free Consultation" data-hi="मुफ्त परामर्श">Free Consultation</a></li>
+          <li><a href="https://wa.me/916378802595" target="_blank" data-en="WhatsApp Us" data-hi="WhatsApp करें">WhatsApp Us</a></li>
+          <li><a href="tel:+916378802595" data-en="Call Now" data-hi="अभी कॉल करें">Call Now</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-en="© 2025 FinSure Consultations. Jay Sabani, Ajmer. All rights reserved." data-hi="© 2025 FinSure Consultations। जय सबानी, अजमेर। सर्वाधिकार सुरक्षित।">© 2025 FinSure Consultations. Jay Sabani, Ajmer. All rights reserved.</p>
+      <div class="footer-badges">
+        <div class="footer-badge">Bajaj Allianz IC</div>
+        <div class="footer-badge">Turtlemint Pro</div>
+        <div class="footer-badge">PB Partners</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <a href="tel:+916378802595" class="float-call" title="Call Jay">📞</a>
+  <a href="https://wa.me/916378802595?text=Hi%20Jay%2C%20I%20need%20financial%20advice!" target="_blank" class="float-wa" title="WhatsApp Jay">💬</a>
+</div>
+
+<script>
+  // LANGUAGE TOGGLE
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-hi').classList.toggle('active', lang === 'hi');
+
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text) el.innerHTML = text;
+    });
+
+    document.querySelectorAll('input[placeholder], textarea').forEach(el => {
+      const ph = el.getAttribute('data-' + lang + '-placeholder');
+      if (ph) el.placeholder = ph;
+    });
+
+    document.querySelectorAll('option[data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text) el.textContent = text;
+    });
+  }
+
+  // FORM SUBMIT
+  function submitForm(e) {
+    e.preventDefault();
+    const msg = document.getElementById('successMsg');
+    msg.style.display = 'block';
+    msg.innerHTML = currentLang === 'hi'
+      ? '✅ धन्यवाद! जय 24 घंटे में आपसे संपर्क करेंगे।'
+      : '✅ Thank you! Jay will contact you within 24 hours.';
+    e.target.reset();
+  }
+
+  // HAMBURGER
+  function toggleMenu() {
+    const nav = document.querySelector('.nav-links');
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    if (nav.style.display === 'flex') {
+      nav.style.flexDirection = 'column';
+      nav.style.position = 'absolute';
+      nav.style.top = '70px';
+      nav.style.left = '0';
+      nav.style.right = '0';
+      nav.style.background = 'white';
+      nav.style.padding = '20px 24px';
+      nav.style.boxShadow = '0 8px 20px rgba(0,0,0,0.1)';
+    }
+  }
+
+  // SCROLL ANIMATIONS
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .why-point').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
